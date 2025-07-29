@@ -6,11 +6,11 @@ public:
         for (int i = 0; i < s; i++) {
             int a = nums[i];
             int more = target - a;
-            if(mpp.find(more) != mpp.end()){
-                return {mpp[more], i}; 
+            if (mpp.find(more) != mpp.end()) {
+                return {mpp[more], i};
             }
             mpp[a] = i;
         }
         return {};
     }
-    };
+};
