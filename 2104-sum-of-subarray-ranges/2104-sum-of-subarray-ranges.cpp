@@ -30,7 +30,6 @@ public:
         vector <int> nse=findNSE(arr,n);
         vector <int> pse=findPSEE(arr,n);
         long long total=0;
-        int mod=(int)(pow(10,9)+7);
         for(int i=0;i<n;i++){
             int left=i-pse[i];
             int right=nse[i]-i;
@@ -67,7 +66,6 @@ public:
         vector <int> nse=findNGE(arr,n);
         vector <int> pse=findPGEE(arr,n);
         long long total=0;
-        int mod=(int)(pow(10,9)+7);
         for(int i=0;i<n;i++){
             int left=i-pse[i];
             int right=nse[i]-i;
