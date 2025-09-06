@@ -25,7 +25,7 @@ public:
         return pse;
     }
 
-    int sumSubarrayMins(vector<int>& arr) {
+    long long sumSubarrayMins(vector<int>& arr) {
         int n=arr.size();
         vector <int> nse=findNSE(arr,n);
         vector <int> pse=findPSEE(arr,n);
@@ -62,7 +62,7 @@ public:
         }
         return pge;
     }
-    int sumSubarrayMaxs(vector<int>& arr) {
+    long long sumSubarrayMaxs(vector<int>& arr) {
         int n=arr.size();
         vector <int> nse=findNGE(arr,n);
         vector <int> pse=findPGEE(arr,n);
