@@ -1,16 +1,17 @@
 class Solution {
-    int func(int ind,vector <int> & dp,vector <int> &nums){
-        if(ind == 0)    return nums[ind];
-        if(ind == -1)   return 0;
-        if(dp[ind] != -1)   return dp[ind];
-        int pick=nums[ind]+func(ind - 2,dp,nums);
-        int notpick=0+func(ind-1,dp,nums);
-        return dp[ind]=max(pick,notpick);
-    }
 public:
     int rob(vector<int>& nums) {
         int n=nums.size();
-        vector <int> dp(n+1,-1);
-        return func(n-1,dp,nums);
+        int prev=nums[0];
+        int prev2=0;
+        for(int i=1;i<n;i++){
+            int take=nums[i];
+            if(i>1) take+=prev2;
+            int nottake=0+prev;
+            int curri=max(take,nottake);
+            prev2=prev;
+            prev=curri;
+        }
+        return prev;
     }
 };
