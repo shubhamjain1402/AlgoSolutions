@@ -23,16 +23,6 @@ public:
         int r=grid.size();
         int c=grid[0].size();
         vector <vector <vector <int> >> dp(r,vector <vector <int>> (c,vector <int> (c,-1)));
-        // dp[0][0]=grid[0][0];
-        // dp[0][c-1]=grid[0][c-1];
-        // int maxi=-1e8;
-        // for(int i=1;i<r;i++){
-        //     for(int dj1=-1;dj1<=1;dj1++){
-        //         for(int dj2=-1;dj2<=1;dj2++){
-
-        //         }
-        //     }
-        // }
         return func(0,0,c-1,r,c,dp,grid);
     }
 };
