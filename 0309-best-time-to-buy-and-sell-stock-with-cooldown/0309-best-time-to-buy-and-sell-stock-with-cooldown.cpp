@@ -1,21 +1,16 @@
 class Solution {
-    int func(int ind,int buy , int cooldown , vector <vector<vector <int>>> &dp, vector <int> &prices, int &n){
-        if(ind == n)    return 0;
-        if(dp[ind][buy][cooldown] != -1)    return dp[ind][buy][cooldown];
-        if(cooldown == 1)  return dp[ind][buy][cooldown]=func(ind+1,buy,0,dp, prices , n);
-        else if(buy == 0){
-            return dp[ind][buy][cooldown]=max(-prices[ind] + func(ind+1,1,0,dp,prices,n),
-            0+ func(ind+1,0,0,dp,prices,n));
-        }
-        else {
-            return dp[ind][buy][cooldown]= max(prices[ind] + func(ind+1,0,1,dp,prices,n),
-            0+ func(ind+1,1,0,dp,prices,n));
-        }
-    }
 public:
     int maxProfit(vector<int>& prices) {
         int n=prices.size();
-        vector <vector<vector <int>>> dp(n,vector <vector<int>>(2,vector <int>(2,-1)));
-        return func(0,0,0,dp,prices,n);
+        vector <int> front2(2,0);
+        vector <int> front1(2,0);
+        vector <int> curr(2,0);
+        for(int ind=n-1;ind>=0;ind--){
+            curr[1]=max(-prices[ind]+front1[0],0+front1[1]); //buy
+            curr[0]=max(prices[ind]+ front2[1], 0 + front1[0]); //sell
+            front2=front1;
+            front1=curr;
+        }
+        return front1[1];
     }
 };
