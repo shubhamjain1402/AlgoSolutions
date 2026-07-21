@@ -7,16 +7,12 @@ public:
         int mini=INT_MAX;
         for(int right=0;right<n;right++){
             sum+=nums[right];
-            if(sum == target){
-                mini=min(mini,right-left+1);
-            }
-            else if(sum> target){
-                while(sum > target){
+            if(sum>= target){
+                while(sum >= target){
                     mini=min(mini,right-left+1);
                     sum-=nums[left];
                     left++;
                 }
-                if(sum == target)   mini=min(mini,right-left+1);
             }
         }
         return mini==INT_MAX ? 0: mini;
