@@ -1,13 +1,11 @@
 class Solution {
 public:
     string removeStars(string s) {
-        vector <char> a;
-        for(char c:s){
-            if(isalpha(c))  a.push_back(c);
-            else a.pop_back();
-        }
         string res="";
-        for(auto it: a) res+=it;
+        for(char c: s){
+            if(c == '*') res.pop_back();
+            else res.push_back(c);
+        }
         return res;
     }
 };
